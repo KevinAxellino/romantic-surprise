@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Love ❤️</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ffe6e6;
+      text-align: center;
+      padding: 50px;
+      margin: 0;
+      overflow: hidden;
+    }
+    h1 {
+      color: #ff4d4d;
+      font-size: 3em;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+    p {
+      color: #333;
+      font-size: 1.5em;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out 1s forwards;
+    }
+    .emoji-container {
+      margin-top: 30px;
+    }
+    .emoji {
+      font-size: 2em;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.2s;
+      display: inline-block;
+    }
+    .emoji:hover {
+      transform: scale(1.2);
+    }
+    .hidden-message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #ff4d4d;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-20px); }
+      60% { transform: translateY(-10px); }
+    }
+    .bounce {
+      animation: bounce 0.5s;
+    }
+  </style>
+</head>
+<body>
+  <h1>I Love You! ❤️</h1>
+  <p>Keep fighting, my love. You're amazing and I believe in you!</p>
+
+  <div class="emoji-container">
+    <span class="emoji" onclick="showMessage('❤️')">❤️</span>
+    <span class="emoji" onclick="showMessage('😊')">😊</span>
+    <span class="emoji" onclick="showMessage('🌸')">🌸</span>
+    <span class="emoji" onclick="showMessage('🌟')">🌟</span>
+  </div>
+
+  <div id="hidden-message" class="hidden-message"></div>
+
+  <script>
+    function showMessage(emoji) {
+      const messages = {
+        '❤️': 'You have my heart forever!',
+        '😊': 'Your smile makes my day!',
+        '🌸': 'You are as beautiful as a flower!',
+        '🌟': 'You shine brighter than the stars!'
+      };
+      const messageElement = document.getElementById('hidden-message');
+      messageElement.textContent = messages[emoji];
+      messageElement.style.display = 'block';
+
+      // Add bounce animation to the clicked emoji
+      const clickedEmoji = event.target;
+      clickedEmoji.classList.add('bounce');
+      setTimeout(() => {
+        clickedEmoji.classList.remove('bounce');
+      }, 500);
+    }
+  </script>
+</body>
+</html>
